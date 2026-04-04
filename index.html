@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <h2>LOGO</h2>
+        <nav>
+            <ul>
+                <li>Dashboard</li>
+                <li>Customer</li>
+                <li>Pets</li>
+                <li>Appointments</li>
+                <li>Employees</li>
+                <li>Reports</li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <h1>Dashboard</h1>
+
+        <!-- TOP SECTION -->
+        <div class="top-section">
+
+            <!-- APPOINTMENTS TABLE -->
+            <div class="card large">
+                <h2>Today's Appointments</h2>
+
+                <table>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Pet Name</th>
+                        <th>Services</th>
+                        <th>Employees</th>
+                        <th>Status</th>
+                    </tr>
+
+                    <tr>
+                        <td>John Morgan</td>
+                        <td>Peanut</td>
+                        <td>Senior Retreat</td>
+                        <td>Lucy, Andy</td>
+                        <td>
+                            <select class="status-dropdown">
+                                <option>Scheduled</option>
+                                <option>In Progress</option>
+                                <option>Ready for Pickup</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Jasmine M.</td>
+                        <td>Rocky</td>
+                        <td>Puppy Love</td>
+                        <td>Amanda, Susy</td>
+                        <td>
+                            <select class="status-dropdown">
+                                <option>Scheduled</option>
+                                <option>In Progress</option>
+                                <option>Ready for Pickup</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Mia L.</td>
+                        <td>Yoda</td>
+                        <td>Bath and Brush, Gland Expression, Teeth Brushing</td>
+                        <td>Amanda, Andy, Lucy</td>
+                        <td>
+                            <select class="status-dropdown">
+                                <option>Scheduled</option>
+                                <option>In Progress</option>
+                                <option>Ready for Pickup</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Nina T.</td>
+                        <td>Coco</td>
+                        <td>Puppy Love</td>
+                        <td>Lucy, Susy</td>
+                        <td>
+                            <select class="status-dropdown">
+                                <option>Scheduled</option>
+                                <option>In Progress</option>
+                                <option>Ready for Pickup</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Tiffany L.</td>
+                        <td>Bella</td>
+                        <td>Signature Groom</td>
+                        <td>Lucy, Amanda</td>
+                        <td>
+                            <select class="status-dropdown">
+                                <option>Scheduled</option>
+                                <option>In Progress</option>
+                                <option>Ready for Pickup</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>April 2026</h3>
+                <div class="calendar-grid">
+
+                    <!-- DAYS -->
+                    <div class="day">Sun</div>
+                    <div class="day">Mon</div>
+                    <div class="day">Tue</div>
+                    <div class="day">Wed</div>
+                    <div class="day">Thu</div>
+                    <div class="day">Fri</div>
+                    <div class="day">Sat</div>
+                
+                    <!-- EMPTY SPACES (April 2026 starts on Wednesday) -->
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                
+                    <!-- DATES -->
+                    <div class="date">1</div>
+                    <div class="date">2</div>
+                    <div class="date">3</div>
+                    <div class="date">4</div>
+                
+                    <div class="date">5</div>
+                    <div class="date">6</div>
+                    <div class="date">7</div>
+                    <div class="date">8</div>
+                    <div class="date">9</div>
+                    <div class="date">10</div>
+                    <div class="date">11</div>
+                
+                    <div class="date">12</div>
+                    <div class="date">13</div>
+                    <div class="date">14</div>
+                    <div class="date">15</div>
+                    <div class="date">16</div>
+                    <div class="date">17</div>
+                    <div class="date">18</div>
+                
+                    <div class="date">19</div>
+                    <div class="date">20</div>
+                    <div class="date active">21</div>
+                    <div class="date">22</div>
+                    <div class="date">23</div>
+                    <div class="date">24</div>
+                    <div class="date">25</div>
+                
+                    <div class="date">26</div>
+                    <div class="date">27</div>
+                    <div class="date">28</div>
+                    <div class="date">29</div>
+                    <div class="date">30</div>
+                </div> 
+                <div class="reminder-box">
+                    <h4>Reminders</h4>
+                    <ul>
+                        <li>Submit Payroll</li>
+                        <li>Create upcoming schedule</li>
+                        <li>Interview at 1pm</li>
+                    </ul>
+                </div> 
+            </div>
+        </div>
+
+        <!-- BOTTOM SECTION -->
+        <div class="bottom-section">
+            <div class="card">
+                <canvas id="statusChart"></canvas>
+            </div>
+            <div class="card">Employee Stats</div>
+        </div>
+
+    </main>
+<script src="script.js"></script>
+</body>
+</html>
