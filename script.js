@@ -49,6 +49,17 @@ const chart = new Chart(ctx, {
                 "#ef9a9a"
             ]
         }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                position: "right"
+            },
+            title: {
+                display: true,
+                text: "Appointment Status Distribution"
+            }
+        }
     }
 });
 
