@@ -124,80 +124,72 @@
                     </tr>
                 </table>
             </div>
-
-            <div class="card">
-                <h3>April 2026</h3>
-                <div class="calendar-grid">
-
-                    <!-- DAYS -->
-                    <div class="day">Sun</div>
-                    <div class="day">Mon</div>
-                    <div class="day">Tue</div>
-                    <div class="day">Wed</div>
-                    <div class="day">Thu</div>
-                    <div class="day">Fri</div>
-                    <div class="day">Sat</div>
-                
-                    <!-- EMPTY SPACES (April 2026 starts on Wednesday) -->
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                
-                    <!-- DATES -->
-                    <div class="date">1</div>
-                    <div class="date">2</div>
-                    <div class="date">3</div>
-                    <div class="date">4</div>
-                
-                    <div class="date">5</div>
-                    <div class="date">6</div>
-                    <div class="date">7</div>
-                    <div class="date">8</div>
-                    <div class="date">9</div>
-                    <div class="date">10</div>
-                    <div class="date">11</div>
-                
-                    <div class="date">12</div>
-                    <div class="date">13</div>
-                    <div class="date">14</div>
-                    <div class="date">15</div>
-                    <div class="date">16</div>
-                    <div class="date">17</div>
-                    <div class="date">18</div>
-                
-                    <div class="date">19</div>
-                    <div class="date">20</div>
-                    <div class="date active">21</div>
-                    <div class="date">22</div>
-                    <div class="date">23</div>
-                    <div class="date">24</div>
-                    <div class="date">25</div>
-                
-                    <div class="date">26</div>
-                    <div class="date">27</div>
-                    <div class="date">28</div>
-                    <div class="date">29</div>
-                    <div class="date">30</div>
-                </div> 
-                <div class="reminder-box">
-                    <h4>Reminders</h4>
-                    <ul>
-                        <li>Submit Payroll</li>
-                        <li>Create upcoming schedule</li>
-                        <li>Interview at 1pm</li>
-                    </ul>
-                </div> 
+            <div class="card notifications-card">
+                <h3>Alerts & Flags</h3>
+            
+                <div class="alert urgent">
+                    ⚠️ Peanut (John M.) – Vaccinations not up to date
+                </div>
+            
+                <div class="alert warning">
+                    ⚠️ Yoda (Mia L.) – History of aggressive behavior
+                </div>
+            
+                <div class="alert info">
+                    ℹ️ Rocky (Jasmine M.) – First-time visit
+                </div>
             </div>
         </div>
-
         <!-- BOTTOM SECTION -->
         <div class="bottom-section">
-            <div class="card">
-                <canvas id="statusChart"></canvas>
-            </div>
-            <div class="card">Employee Stats</div>
-        </div>
 
+            <!-- WORKLOAD -->
+            <div class="card compact">
+                <h3>Today's Workload</h3>
+                <p id="totalDogsText">0 dogs today</p>
+                <p>Completed</p>
+
+                <div class="capacity-bar small">
+                    <div class="capacity-fill" id="completionBar"></div>
+                </div>
+
+                <p id="completionText">0 / 0 completed</p>
+
+                <!-- EMPLOYEES -->
+                <h4>Groomer Load</h4>
+
+                <div class="employee">
+                    <span>Lucy</span>
+                    <div class="bar"><div class="fill" id="lucyLoad"></div></div>
+                    <span id="lucyLoadText">0%</span>
+                </div>
+
+                <div class="employee">
+                    <span>Amanda</span>
+                    <div class="bar"><div class="fill" id="amandaLoad"></div></div>
+                    <span id="amandaLoadText">0%</span>
+                </div>
+
+                <div class="employee">
+                    <span>Andy</span>
+                    <div class="bar"><div class="fill" id="andyLoad"></div></div>
+                    <span id="andyLoadText">0%</span>
+                </div>
+
+                <div class="employee">
+                    <span>Susy</span>
+                    <div class="bar"><div class="fill" id="susyLoad"></div></div>
+                    <span id="susyLoadText">0%</span>
+                </div>
+            </div>
+
+            <!-- REVENUE -->
+            <div class="card">
+                <h3>Today's Revenue</h3>
+                <p id="revenueTotal">$0</p>
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
     </main>
 <script src="script.js"></script>
 </body>

@@ -87,88 +87,78 @@ th, td {
 .status.cancelled { background: #ffcdd2; }
 .status.checkedin { background: #d1c4e9; }
 
-/* ========================= */
-/* CALENDAR STYLING */
-/* ========================= */
-
-.calendar-card {
+.notifications-card {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
-/* HEADER */
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.calendar-header h3 {
-    font-size: 16px;
-    margin: 0;
-}
-
-.calendar-header button {
-    background: #3f51b5;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* GRID */
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-}
-
-/* date */
-.date {
-    aspect-ratio: 1 / 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.alert {
+    padding: 12px;
     border-radius: 12px;
-    background: #e3e6f3 ;
+    font-size: 14px;
     font-weight: 500;
 }
 
-/* DAY LABELS */
-.day {
-    font-size: 12px;
-    color: #888;
+/* ALERT TYPES */
+.urgent {
+    background: #ffcdd2;
 }
 
+.warning {
+    background: #fff3cd;
+}
 
+.info {
+    background: #d1ecf1;
+}
 
-/* ACTIVE DATE */
-.date.active {
+.bar {
+    flex: 1;
+    height: 12px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    width: 0%;
     background: #3f51b5;
-    color: white;
-    box-shadow: 0 4px 8px rgba(63, 81, 181, 0.25);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.capacity-fill {
+    height: 100%;
+    width: 0%;
+    background: #3f51b5;
+    border-radius: 10px;
+}
+/* COMPACT CARD */
+.compact {
+    padding: 15px;
 }
 
-/* HOVER EFFECT */
-.date:hover {
-    background: #d4d9f0;
+/* SMALL TEXT */
+.compact h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
-/* REMINDERS */
-
-
-.reminder-box h4 {
-    margin: 0 0 10px 0;
+.compact p {
+    font-size: 13px;
+    margin: 4px 0;
 }
 
-.reminder-box li {
-    margin-bottom: 6px;
+/* SMALL BAR */
+.capacity-bar.small {
+    height: 10px;
+}
+.bottom-section {
+    display: flex;
+    gap: 20px;
 }
 
-.reminder-box ul {
-    padding-left: 18px;
-    margin: 5px 0 0;
+.bottom-section .card {
+    flex: 1;
 }
-
