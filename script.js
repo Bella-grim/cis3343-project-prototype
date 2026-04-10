@@ -316,6 +316,7 @@ if (stateDropdown) {
         stateDropdown.appendChild(option);
     });
 }
+
     
     // RUN ON LOAD
     countStatuses();
@@ -323,3 +324,7 @@ if (stateDropdown) {
     updateRevenue();
 
 });
+
+function goToSearch() {
+    window.location.href = "search.html";
+}
