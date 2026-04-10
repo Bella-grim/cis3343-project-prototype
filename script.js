@@ -252,6 +252,71 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
+
+const countryDropdown = document.getElementById("country");
+
+if (countryDropdown) {
+    fetch("https://restcountries.com/v3.1/all?fields=name")
+        .then(response => response.json())
+        .then(data => {
+
+            countryDropdown.innerHTML = "";
+
+            data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+
+            const defaultOption = document.createElement("option");
+            defaultOption.textContent = "Select Country";
+            defaultOption.value = "";
+            countryDropdown.appendChild(defaultOption);
+
+            data.forEach(country => {
+                const option = document.createElement("option");
+                option.value = country.name.common;
+                option.textContent = country.name.common;
+
+                if (country.name.common === "United States") {
+                    option.selected = true;
+                }
+
+                countryDropdown.appendChild(option);
+            });
+
+        })
+        .catch(error => {
+            console.error("Error loading countries:", error);
+            countryDropdown.innerHTML = "<option>Error loading countries</option>";
+        });
+}
+
+const stateDropdown = document.getElementById("state");
+
+if (stateDropdown) {
+
+    const states = [
+        "Alabama","Alaska","Arizona","Arkansas","California","Colorado",
+        "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho",
+        "Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana",
+        "Maine","Maryland","Massachusetts","Michigan","Minnesota",
+        "Mississippi","Missouri","Montana","Nebraska","Nevada",
+        "New Hampshire","New Jersey","New Mexico","New York",
+        "North Carolina","North Dakota","Ohio","Oklahoma","Oregon",
+        "Pennsylvania","Rhode Island","South Carolina","South Dakota",
+        "Tennessee","Texas","Utah","Vermont","Virginia","Washington",
+        "West Virginia","Wisconsin","Wyoming",
+
+        // IMPORTANT ADDITIONS
+        "District of Columbia",
+        "Puerto Rico"
+    ];
+
+    states.forEach(state => {
+        const option = document.createElement("option");
+        option.textContent = state;
+        stateDropdown.appendChild(option);
+    });
+}
+    
     // RUN ON LOAD
     countStatuses();
     updateCapacity();

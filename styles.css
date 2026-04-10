@@ -162,3 +162,49 @@ th, td {
 .bottom-section .card {
     flex: 1;
 }
+
+/* CUSTOMER FILES */
+
+.form-container {
+    background: #f4f4f4;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    margin: auto;
+}
+
+.section-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+label {
+    font-weight: 500;
+    min-width: 120px;
+}
+
+input {
+    padding: 6px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    width: 180px;
+}
+
+input.full {
+    width: 400px;
+}
+
+/* REQUIRED FIELD */
+.required::before {
+    content: "* ";
+    color: red;
+}

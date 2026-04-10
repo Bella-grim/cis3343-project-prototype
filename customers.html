@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR (same as dashboard) -->
+    <div class="navbar">
+        <h2>LOGO</h2>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="customers.html">Customer</a></li>
+            <li>Pets</li>
+            <li>Appointments</li>
+            <li>Employees</li>
+            <li>Reports</li>
+        </ul>
+    </div>
+
+    <main>
+
+        <div class="form-container">
+
+            <!-- CUSTOMER SECTION -->
+            <h2>Add Customer</h2>
+            <p class="section-title">Customer Information</p>
+        
+            <div class="form-row">
+                <label class="required">First Name</label>
+                <input type="text" required>
+        
+                <label class="required">Last Name</label>
+                <input type="text" required>
+            </div>
+        
+            <div class="form-row">
+                <label class="required">Phone Number</label>
+                <input type="text" required>
+        
+                <label>Email</label>
+                <input type="email">
+            </div>
+        
+            <div class="form-row">
+                <label>Country</label>
+                <select id="country">
+                    <option>Loading countries...</option>
+                </select>
+            </div>
+        
+            <div class="form-row">
+                <label>Address</label>
+                <input type="text" class="full">
+            </div>
+        
+            <div class="form-row">
+                <label>Apartment, Suite, etc.</label>
+                <input type="text" class="full">
+            </div>
+        
+            <div class="form-row">
+                <label>City</label>
+                <input type="text">
+        
+                <label>State</label>
+                <select id="state">
+                    <option value="">Select State</option>
+                </select>
+        
+                <label>Zip Code</label>
+                <input type="text">
+            </div>
+        
+            <!-- PET SECTION -->
+            <h2>Add Pet</h2>
+            <p class="section-title">Pet Information</p>
+        
+            <div class="form-row">
+                <label class="required">Pet Name</label>
+                <input type="text" required>
+        
+                <label>DOB</label>
+                <input type="date">
+            </div>
+        
+            <div class="form-row">
+                <label>Breed</label>
+                <input type="text">
+        
+                <label>Weight</label>
+                <input type="text">
+            </div>
+        
+            <div class="form-row">
+                <label>Dog Temperament</label>
+                <input type="text" class="full">
+            </div>
+        
+        </div>
+
+    </main>
+
+<script src="script.js"></script>
+</body>
+</html>
