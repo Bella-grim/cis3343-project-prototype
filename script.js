@@ -815,6 +815,9 @@ const resultsContainer = document.getElementById("customer-results");
 const resultsCount = document.getElementById("customer-results-count");
 const profilePanel = document.getElementById("customer-profile-panel");
 const viewProfileButton = document.getElementById("view-customer-profile");
+const customerBrowser = document.getElementById("customer-browser");
+const hideCustomerResultsButton = document.getElementById("hide-customer-results");
+const customerSearchButton = document.getElementById("customer-search-button");
 
 if (searchInput && customerFilter && resultsContainer && resultsCount && profilePanel) {
     const customerRecords = [
@@ -970,6 +973,13 @@ if (searchInput && customerFilter && resultsContainer && resultsCount && profile
                 </div>
 
                 <div>
+                    <p class="profile-section-title">ACCOUNT CREDIT</p>
+                    <div class="profile-grid">
+                        <div class="profile-block"><span>Credit balance</span><strong>${customer.creditBalance}</strong></div>
+                    </div>
+                </div>
+
+                <div>
                     <p class="profile-section-title">LINKED PETS</p>
                     <div class="pet-chip">
                         <div class="pet-chip-meta">
@@ -1084,18 +1094,56 @@ if (searchInput && customerFilter && resultsContainer && resultsCount && profile
         renderResults(getFilteredCustomers());
     }
 
+    function openCustomerResults() {
+        if (customerBrowser) {
+            customerBrowser.classList.remove("hidden");
+        }
+    }
+
+    function runCustomerSearch() {
+        const filteredCustomers = getFilteredCustomers();
+
+        if (filteredCustomers.length > 0) {
+            selectedCustomerId = filteredCustomers[0].id;
+        }
+
+        openCustomerResults();
+        renderResults(filteredCustomers);
+    }
+
     if (viewProfileButton) {
         viewProfileButton.addEventListener("click", () => {
             const selectedCustomer = customerRecords.find(customer => customer.id === selectedCustomerId);
             if (selectedCustomer) {
+                openCustomerResults();
                 buildProfile(selectedCustomer);
                 profilePanel.scrollIntoView({ behavior: "smooth", block: "start" });
             }
         });
     }
 
-    searchInput.addEventListener("input", renderCustomerWorkspace);
-    customerFilter.addEventListener("change", renderCustomerWorkspace);
+    if (customerBrowser && hideCustomerResultsButton) {
+        hideCustomerResultsButton.addEventListener("click", () => {
+            customerBrowser.classList.add("hidden");
+        });
+    }
+
+    if (customerSearchButton) {
+        customerSearchButton.addEventListener("click", runCustomerSearch);
+    }
+
+    searchInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            runCustomerSearch();
+        }
+    });
+
+    customerFilter.addEventListener("change", () => {
+        if (customerBrowser && !customerBrowser.classList.contains("hidden")) {
+            renderCustomerWorkspace();
+        }
+    });
 
     if (customerForm) {
         customerForm.addEventListener("submit", event => {
@@ -1105,6 +1153,7 @@ if (searchInput && customerFilter && resultsContainer && resultsCount && profile
             const petName = document.getElementById("pet-name").value.trim();
             const primaryBreed = document.getElementById("breed-primary").value.trim();
             const secondaryBreed = secondaryBreedInput ? secondaryBreedInput.value.trim() : "";
+            const customerCreditValue = document.getElementById("customer-credit").value.trim();
             const newCustomer = {
                 id: `cust-${Date.now()}`,
                 firstName: document.getElementById("first-name").value.trim(),
@@ -1133,13 +1182,14 @@ if (searchInput && customerFilter && resultsContainer && resultsCount && profile
                 visits: 0,
                 lastVisit: "",
                 authorizedPickup: fullName,
-                creditBalance: "$0.00",
+                creditBalance: `$${Number(customerCreditValue || 0).toFixed(2)}`,
                 appointmentHistory: []
             };
 
             customerRecords.unshift(newCustomer);
             selectedCustomerId = newCustomer.id;
             searchInput.value = newCustomer.fullName;
+            openCustomerResults();
             renderCustomerWorkspace();
 
             customerForm.reset();

@@ -203,7 +203,7 @@ th, td {
 
 .search-panel-controls {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+    grid-template-columns: minmax(0, 2fr) auto minmax(220px, 1fr);
     gap: 16px;
 }
 
@@ -362,11 +362,6 @@ th, td {
 
 .section-actions {
     margin: 22px 0 18px;
-}
-
-.section-actions-top {
-    width: min(100%, 1000px);
-    margin: 0 auto 20px;
 }
 
 .collapsible-section {

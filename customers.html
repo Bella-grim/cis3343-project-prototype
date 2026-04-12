@@ -33,6 +33,7 @@
 
             <div class="search-panel-controls">
                 <input id="customer-search-input" type="search" placeholder="Search by name, phone, email, or pet name. Example: Jane Doe or 713-555-0188">
+                <button type="button" id="customer-search-button" class="secondary-button">Search</button>
                 <select id="customer-filter">
                     <option>All Customers</option>
                     <option>Active Customers</option>
@@ -41,11 +42,14 @@
             </div>
         </section>
 
-        <section class="customer-browser">
+        <section id="customer-browser" class="customer-browser hidden">
             <div class="results-panel">
                 <div class="results-panel-header">
-                    <h3>Customer Results</h3>
-                    <span id="customer-results-count" class="results-count">0 customers</span>
+                    <div>
+                        <h3>Customer Results</h3>
+                        <span id="customer-results-count" class="results-count">0 customers</span>
+                    </div>
+                    <button type="button" id="hide-customer-results" class="text-button">Hide Results</button>
                 </div>
                 <div id="customer-results" class="results-list"></div>
             </div>
@@ -58,7 +62,7 @@
             </div>
         </section>
 
-        <div class="section-actions section-actions-top">
+        <div class="section-actions">
             <button type="button" id="toggle-customer-form" class="section-toggle-button">+ Add New Customer</button>
         </div>
 
@@ -99,6 +103,11 @@
                 <div class="field-group">
                     <label class="required" for="customer-added-date">Customer Since</label>
                     <input id="customer-added-date" type="date" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="customer-credit">Customer Credit</label>
+                    <input id="customer-credit" type="number" min="0" step="0.01" value="0.00" placeholder="0.00">
                 </div>
             </div>
 
