@@ -13,7 +13,7 @@
         <h2>LOGO</h2>
         <ul>
             <li><a href="index.html">Dashboard</a></li>
-            <li><a href="customers.html">Customer</a></li>
+            <li><a href="customers.html">Customers</a></li>
             <li>Pets</li>
             <li>Appointments</li>
             <li>Employees</li>
@@ -22,88 +22,388 @@
     </div>
 
     <main>
-        <div class="top-actions">
-            <button onclick="goToSearch()">Search Customer</button>
-        </div>
-
-        <div class="form-container">
-
-            <!-- CUSTOMER SECTION -->
-            <h2>Add Customer</h2>
-            <p class="section-title">* are required fields</p>
-        
-            <div class="form-row">
-                <label class="required">First Name</label>
-                <input type="text" required>
-        
-                <label class="required">Last Name</label>
-                <input type="text" required>
+        <section class="search-panel">
+            <div class="search-panel-header">
+                <div>
+                    <h2>Customer Search</h2>
+                    <p class="section-title">Search by customer name, phone, email, or pet name and open the full profile from here.</p>
+                </div>
+                <button type="button" id="view-customer-profile" class="secondary-button" disabled>View Customer Profile</button>
             </div>
-        
-            <div class="form-row">
-                <label class="required">Phone Number</label>
-                <input type="text" required>
-        
-                <label>Email</label>
-                <input type="email">
-            </div>
-        
-            <div class="form-row">
-                <label>Country</label>
-                <select id="country">
-                    <option>Select Country.</option>
+
+            <div class="search-panel-controls">
+                <input id="customer-search-input" type="search" placeholder="Search by name, phone, email, or pet name. Example: Jane Doe or 713-555-0188">
+                <select id="customer-filter">
+                    <option>All Customers</option>
+                    <option>Active Customers</option>
+                    <option>New This Month</option>
                 </select>
             </div>
-        
-            <div class="form-row">
-                <label>Address</label>
-                <input type="text" class="full">
+        </section>
+
+        <section class="customer-browser">
+            <div class="results-panel">
+                <div class="results-panel-header">
+                    <h3>Customer Results</h3>
+                    <span id="customer-results-count" class="results-count">0 customers</span>
+                </div>
+                <div id="customer-results" class="results-list"></div>
             </div>
-        
-            <div class="form-row">
-                <label>Apartment, Suite, etc.</label>
-                <input type="text" class="full">
+
+            <div id="customer-profile-panel" class="profile-panel">
+                <div class="profile-empty">
+                    <h3>No Customer Selected</h3>
+                    <p>Search for a customer or add a new one to preview the full profile for your presentation.</p>
+                </div>
             </div>
-        
-            <div class="form-row">
-                <label>City</label>
-                <input type="text">
-        
-                <label>State</label>
-                <select id="state">
-                    <option value="">Select State</option>
-                </select>
-        
-                <label>Zip Code</label>
-                <input type="text">
-            </div>
-        
-            <!-- PET SECTION -->
-            <h2>Add Pet</h2>
-            <p class="section-title">Pet Information</p>
-        
-            <div class="form-row">
-                <label class="required">Pet Name</label>
-                <input type="text" required>
-        
-                <label>DOB</label>
-                <input type="date">
-            </div>
-        
-            <div class="form-row">
-                <label>Breed</label>
-                <input type="text">
-        
-                <label>Weight</label>
-                <input type="text">
-            </div>
-        
-            <div class="form-row">
-                <label>Dog Temperament</label>
-                <input type="text" class="full">
-            </div>
-        
+        </section>
+
+        <div class="section-actions section-actions-top">
+            <button type="button" id="toggle-customer-form" class="section-toggle-button">+ Add New Customer</button>
         </div>
+
+        <form id="customer-form" class="form-container hidden">
+            <div class="section-header">
+                <div>
+                    <h2>Add Customer</h2>
+                    <p class="section-title">* are required fields</p>
+                </div>
+                <button type="button" id="hide-customer-form" class="text-button">Hide Form</button>
+            </div>
+        
+            <div class="form-row two-column">
+                <div class="field-group">
+                    <label class="required" for="first-name">First Name</label>
+                    <input id="first-name" type="text" required>
+                </div>
+
+                <div class="field-group">
+                    <label class="required" for="last-name">Last Name</label>
+                    <input id="last-name" type="text" required>
+                </div>
+            </div>
+        
+            <div class="form-row two-column">
+                <div class="field-group">
+                    <label class="required" for="phone-number">Phone Number</label>
+                    <input id="phone-number" type="text" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email">
+                </div>
+            </div>
+
+            <div class="form-row two-column">
+                <div class="field-group">
+                    <label class="required" for="customer-added-date">Customer Since</label>
+                    <input id="customer-added-date" type="date" required>
+                </div>
+            </div>
+
+            <div class="form-row single-column">
+                <div class="field-group">
+                    <label class="required" for="preferred-contact">Preferred Contact Method</label>
+                    <select id="preferred-contact" required>
+                        <option value="">Select Contact Method</option>
+                        <option>Phone</option>
+                        <option>Text</option>
+                        <option>Email</option>
+                    </select>
+                </div>
+            </div>
+        
+            <div class="form-row single-column">
+                <div class="field-group">
+                    <label for="country">Country</label>
+                    <select id="country">
+                        <option>Select Country.</option>
+                    </select>
+                </div>
+            </div>
+        
+            <div class="form-row single-column">
+                <div class="field-group">
+                    <label class="required" for="address">Address</label>
+                    <input id="address" type="text" class="full-width" required>
+                </div>
+            </div>
+        
+            <div class="form-row single-column">
+                <div class="field-group">
+                    <label for="apartment">Apartment, Suite, etc.</label>
+                    <input id="apartment" type="text" class="full-width">
+                </div>
+            </div>
+        
+            <div class="form-row three-column">
+                <div class="field-group">
+                    <label class="required" for="city">City</label>
+                    <input id="city" type="text" required>
+                </div>
+
+                <div class="field-group">
+                    <label class="required" for="state">State</label>
+                    <select id="state" required>
+                        <option value="">Select State</option>
+                    </select>
+                </div>
+
+                <div class="field-group">
+                    <label class="required" for="zip-code">Zip Code</label>
+                    <input id="zip-code" type="text" required>
+                </div>
+            </div>
+
+            <div class="form-row single-column">
+                <div class="field-group">
+                    <label for="customer-notes">Customer Notes / Preferences</label>
+                    <textarea id="customer-notes" rows="3" placeholder="Contact preferences, pickup notes, or other important details"></textarea>
+                </div>
+            </div>
+        
+            <div class="section-actions">
+                <button type="button" id="toggle-pet-section" class="section-toggle-button">+ Add Pet</button>
+            </div>
+
+            <section id="pet-section" class="collapsible-section hidden">
+                <div class="section-header">
+                    <div>
+                        <h2>Add Pet</h2>
+                        <p class="section-title">Pet Information</p>
+                    </div>
+                    <button type="button" id="hide-pet-section" class="text-button">Hide Pet Section</button>
+                </div>
+            
+                <div class="form-row two-column">
+                    <div class="field-group">
+                        <label class="required" for="pet-name">Pet Name</label>
+                        <input id="pet-name" type="text" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="required" for="pet-dob">DOB</label>
+                        <input id="pet-dob" type="date" required>
+                    </div>
+                </div>
+
+                <div class="form-row two-column">
+                    <div class="field-group">
+                        <label class="required" for="pet-added-date">Pet Added Date</label>
+                        <input id="pet-added-date" type="date" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="required" for="pet-first-visit">Pet First Visit Date</label>
+                        <input id="pet-first-visit" type="date" required>
+                    </div>
+                </div>
+            
+                <div class="form-row two-column">
+                    <div class="field-group">
+                        <label class="required" for="breed-primary">Breed</label>
+                        <div class="breed-selector">
+                            <input id="breed-primary" list="breed-options" type="text" placeholder="Search or select a breed" required>
+                            <button type="button" id="add-breed-button" class="secondary-button">+ Add Another Breed</button>
+                        </div>
+                        <div id="secondary-breed-group" class="field-group hidden">
+                            <label for="breed-secondary">Second Breed</label>
+                            <div class="breed-selector">
+                                <input id="breed-secondary" list="breed-options" type="text" placeholder="Optional for mixed-breed dogs">
+                                <button type="button" id="remove-breed-button" class="secondary-button secondary-button-muted">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="required" for="weight">Weight</label>
+                        <input id="weight" type="text" required>
+                    </div>
+                </div>
+
+                <div class="form-row two-column">
+                    <div class="field-group">
+                        <label class="required" for="weight-date">Date Weight Was Taken</label>
+                        <input id="weight-date" type="date" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="required" for="pet-photo">Pet Profile Photo</label>
+                        <input id="pet-photo" type="file" accept="image/*" required>
+                    </div>
+                </div>
+
+                <div class="form-row two-column">
+                    <div class="field-group">
+                        <label class="required" for="temperament">Basic Temperament</label>
+                        <select id="temperament" required>
+                            <option value="">Select Temperament</option>
+                            <option>Calm and Sociable</option>
+                            <option>High Energy</option>
+                            <option>Playful</option>
+                            <option>Shy</option>
+                            <option>Nervous</option>
+                            <option>Overly Independent</option>
+                            <option>High Prey Drive</option>
+                            <option>Aggressive</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="required" for="first-groom">First Grooming Visit?</label>
+                        <select id="first-groom" required>
+                            <option value="">Select Option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row single-column">
+                    <div class="field-group">
+                        <label for="pet-alerts">Notes / Alerts</label>
+                        <textarea id="pet-alerts" rows="3" placeholder="Behavior concerns, handling notes, or anything staff should know"></textarea>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button type="button" id="toggle-vaccine-section" class="section-toggle-button">+ Add Vaccination Details</button>
+                </div>
+
+                <section id="vaccine-section" class="collapsible-section nested-section hidden">
+                    <div class="section-header">
+                        <h3>Vaccination Status</h3>
+                        <button type="button" id="hide-vaccine-section" class="text-button">Hide Vaccinations</button>
+                    </div>
+
+                    <div class="form-row three-column">
+                        <div class="field-group">
+                            <label class="required" for="rabies-status">Rabies</label>
+                            <select id="rabies-status" required>
+                                <option value="">Select Status</option>
+                                <option>Current</option>
+                                <option>Expired</option>
+                                <option>Not Provided</option>
+                            </select>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="rabies-given">Date Given</label>
+                            <input id="rabies-given" type="date">
+                        </div>
+
+                        <div class="field-group">
+                            <label for="rabies-expires">Expiration Date</label>
+                            <input id="rabies-expires" type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-row three-column">
+                        <div class="field-group">
+                            <label class="required" for="parvovirus-status">Parvovirus</label>
+                            <select id="parvovirus-status" required>
+                                <option value="">Select Status</option>
+                                <option>Current</option>
+                                <option>Expired</option>
+                                <option>Not Provided</option>
+                            </select>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="parvovirus-given">Date Given</label>
+                            <input id="parvovirus-given" type="date">
+                        </div>
+
+                        <div class="field-group">
+                            <label for="parvovirus-expires">Expiration Date</label>
+                            <input id="parvovirus-expires" type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-row three-column">
+                        <div class="field-group">
+                            <label class="required" for="adenovirus-status">Adenovirus 2</label>
+                            <select id="adenovirus-status" required>
+                                <option value="">Select Status</option>
+                                <option>Current</option>
+                                <option>Expired</option>
+                                <option>Not Provided</option>
+                            </select>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="adenovirus-given">Date Given</label>
+                            <input id="adenovirus-given" type="date">
+                        </div>
+
+                        <div class="field-group">
+                            <label for="adenovirus-expires">Expiration Date</label>
+                            <input id="adenovirus-expires" type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-row three-column">
+                        <div class="field-group">
+                            <label class="required" for="distemper-status">Canine Distemper Virus</label>
+                            <select id="distemper-status" required>
+                                <option value="">Select Status</option>
+                                <option>Current</option>
+                                <option>Expired</option>
+                                <option>Not Provided</option>
+                            </select>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="distemper-given">Date Given</label>
+                            <input id="distemper-given" type="date">
+                        </div>
+
+                        <div class="field-group">
+                            <label for="distemper-expires">Expiration Date</label>
+                            <input id="distemper-expires" type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-row three-column">
+                        <div class="field-group">
+                            <label class="required" for="parainfluenza-status">Parainfluenza</label>
+                            <select id="parainfluenza-status" required>
+                                <option value="">Select Status</option>
+                                <option>Current</option>
+                                <option>Expired</option>
+                                <option>Not Provided</option>
+                            </select>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="parainfluenza-given">Date Given</label>
+                            <input id="parainfluenza-given" type="date">
+                        </div>
+
+                        <div class="field-group">
+                            <label for="parainfluenza-expires">Expiration Date</label>
+                            <input id="parainfluenza-expires" type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-row single-column">
+                        <div class="field-group">
+                            <label for="vaccine-notes">Vaccination Notes</label>
+                            <textarea id="vaccine-notes" rows="3" placeholder="Anything important about records, missing proof, or follow-up needed"></textarea>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <div class="form-actions">
+                <button type="button" id="add-another-pet" class="secondary-button hidden">+ Add Another Pet</button>
+                <button type="submit" class="submit-button">Save Customer and Pet</button>
+            </div>
+
+            <datalist id="breed-options"></datalist>
+        
+        </form>
 
     </main>
 
