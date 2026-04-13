@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report 11 - Groomer Skill and Service Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>LOGO</h2>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li>Pets</li>
+            <li>Appointments</li>
+            <li>Employees</li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="report-detail-shell">
+            <div class="report-detail-header">
+                <div>
+                    <a href="reports.html" class="report-back-link">Back to Reports</a>
+                    <p class="report-detail-id">Report 11</p>
+                    <h1>Groomer Skill and Service Report</h1>
+                    <p class="report-detail-summary">A prototype view of groomer certifications, authorized services, and evaluation details so Lucy and Amanda can assign qualified staff with confidence.</p>
+                </div>
+                <span class="report-tag staff">Staff</span>
+            </div>
+
+            <section class="report-detail-card">
+                <section class="report11-form-shell">
+                    <button type="button" id="report11-form-toggle" class="section-toggle-button report11-form-toggle" aria-expanded="false" aria-controls="report11-form-panel">+ Add Skill Record</button>
+
+                    <div id="report11-form-panel" class="hidden">
+                    <div class="report11-form-header">
+                        <div>
+                            <h2 id="report11-form-title">Add Skill Record</h2>
+                            <p class="report-detail-summary">Use this form during the presentation to add, update, or remove a part-time groomer skill record.</p>
+                        </div>
+                    </div>
+
+                    <form id="report11-form" class="report11-form-grid">
+                        <input type="hidden" id="record-id">
+
+                        <div class="report-filter-control">
+                            <label for="form-groomer">Groomer Name</label>
+                            <select id="form-groomer" required>
+                                <option value="">Select groomer</option>
+                                <option value="Jane Doe">Jane Doe</option>
+                                <option value="John Doe">John Doe</option>
+                            </select>
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="form-skill">Skill Name</label>
+                            <select id="form-skill" required>
+                                <option value="">Select skill</option>
+                                <option value="Shampoo & Conditioner">Shampoo &amp; Conditioner</option>
+                                <option value="Blow Dry">Blow Dry</option>
+                                <option value="Standard Brushing">Standard Brushing</option>
+                                <option value="Haircut & Styling">Haircut &amp; Styling</option>
+                                <option value="Nail Trimming">Nail Trimming</option>
+                                <option value="Ear Cleaning">Ear Cleaning</option>
+                                <option value="Face Tidy / Sanitary Trim">Face Tidy / Sanitary Trim</option>
+                                <option value="Paw Pad Trim">Paw Pad Trim</option>
+                                <option value="Teeth Brushing">Teeth Brushing</option>
+                                <option value="Dematting">Dematting</option>
+                                <option value="Deshed Treatment">Deshed Treatment</option>
+                                <option value="Extra Handling">Extra Handling</option>
+                                <option value="Before/After Pet Photography">Before/After Pet Photography</option>
+                            </select>
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="form-certification">Certification Status</label>
+                            <select id="form-certification" required>
+                                <option value="">Select status</option>
+                                <option value="Certified">Certified</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Not Certified">Not Certified</option>
+                            </select>
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="form-authorized">Authorized to Perform</label>
+                            <select id="form-authorized" required>
+                                <option value="">Select authorization</option>
+                                <option value="Yes">Yes</option>
+                                <option value="Supervised Only">Supervised Only</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="form-evaluated-by">Evaluated By</label>
+                            <select id="form-evaluated-by" required>
+                                <option value="">Select evaluator</option>
+                                <option value="Amanda">Amanda</option>
+                                <option value="Lucy">Lucy</option>
+                            </select>
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="form-evaluation-date">Evaluation Date</label>
+                            <input id="form-evaluation-date" type="date" required>
+                        </div>
+
+                        <div class="report-filter-control full-width">
+                            <label for="form-notes">Notes</label>
+                            <textarea id="form-notes" rows="3" placeholder="Add a quick presentation note about the certification or supervision requirement." required></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" id="report11-reset" class="secondary-button">Clear</button>
+                            <button type="submit" id="report11-submit" class="submit-button">Save Skill Record</button>
+                        </div>
+                    </form>
+                    </div>
+                </section>
+
+                <div class="report-toolbar">
+                    <div class="report-toolbar-search">
+                        <label for="report11-search">Search groomer or skill</label>
+                        <input id="report11-search" type="search" placeholder="Search Jane Doe, John Doe, Nail Trimming...">
+                    </div>
+
+                    <div class="report-toolbar-filters">
+                        <div class="report-filter-control">
+                            <label for="filter-certification">Certification Status</label>
+                            <select id="filter-certification">
+                                <option value="all">All Statuses</option>
+                                <option value="Certified">Certified</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Not Certified">Not Certified</option>
+                            </select>
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="filter-skill">Skill Name</label>
+                            <select id="filter-skill">
+                                <option value="all">All Skills</option>
+                                <option value="Shampoo & Conditioner">Shampoo &amp; Conditioner</option>
+                                <option value="Blow Dry">Blow Dry</option>
+                                <option value="Standard Brushing">Standard Brushing</option>
+                                <option value="Haircut & Styling">Haircut &amp; Styling</option>
+                                <option value="Nail Trimming">Nail Trimming</option>
+                                <option value="Ear Cleaning">Ear Cleaning</option>
+                                <option value="Face Tidy / Sanitary Trim">Face Tidy / Sanitary Trim</option>
+                                <option value="Paw Pad Trim">Paw Pad Trim</option>
+                                <option value="Teeth Brushing">Teeth Brushing</option>
+                                <option value="Dematting">Dematting</option>
+                                <option value="Deshed Treatment">Deshed Treatment</option>
+                                <option value="Extra Handling">Extra Handling</option>
+                                <option value="Before/After Pet Photography">Before/After Pet Photography</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report11-results-bar">
+                    <p id="report11-results-copy">Showing all skill records</p>
+                    <p class="report11-results-note">Click any column header to sort the table.</p>
+                </div>
+
+                <div class="report-table-wrap">
+                    <table id="report11-table">
+                        <thead>
+                            <tr>
+                                <th><button type="button" class="sort-button" data-sort="name">Groomer Name</button></th>
+                                <th><button type="button" class="sort-button" data-sort="skill">Skill Name</button></th>
+                                <th><button type="button" class="sort-button" data-sort="certification">Certification Status</button></th>
+                                <th><button type="button" class="sort-button" data-sort="authorized">Authorized to Perform</button></th>
+                                <th><button type="button" class="sort-button" data-sort="evaluatedBy">Evaluated By</button></th>
+                                <th><button type="button" class="sort-button" data-sort="evaluationDate">Evaluation Date</button></th>
+                                <th><button type="button" class="sort-button" data-sort="notes">Notes</button></th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report11-body"></tbody>
+                    </table>
+                </div>
+
+                <div id="report11-empty" class="reports-empty-state hidden">
+                    <h3>No matching records</h3>
+                    <p>Try a different groomer, skill, or certification filter.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="report11.js"></script>
+</body>
+</html>

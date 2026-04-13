@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report 19 - Package Service Usage Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>LOGO</h2>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li>Pets</li>
+            <li>Appointments</li>
+            <li>Employees</li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="report-detail-shell">
+            <div class="report-detail-header">
+                <div>
+                    <a href="reports.html" class="report-back-link">Back to Reports</a>
+                    <p class="report-detail-id">Report 19</p>
+                    <h1>Package Service Usage Report</h1>
+                    <p class="report-detail-summary">A focused package report that helps Lucy see which grooming packages are selected most often, which ones bring in the most revenue, and which package trends are moving up or down.</p>
+                </div>
+                <span class="report-tag revenue">Revenue &amp; Marketing</span>
+            </div>
+
+            <section class="report-detail-card">
+                <div class="report-toolbar report12-toolbar-top">
+                    <div class="report-toolbar-search">
+                        <label for="report19-search">Search packages</label>
+                        <input id="report19-search" type="search" placeholder="Search Puppy Love, Signature Groom, Shed-Control Bath...">
+                    </div>
+
+                    <div class="report-toolbar-filters report12-toolbar-filters report12-toolbar-filters-compact">
+                        <div class="report-filter-control">
+                            <label for="report19-start-date">Start Date</label>
+                            <input id="report19-start-date" type="date" value="2026-03-01">
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="report19-end-date">End Date</label>
+                            <input id="report19-end-date" type="date" value="2026-03-18">
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="report19-package-filter">Package Name</label>
+                            <select id="report19-package-filter">
+                                <option value="all">All Packages</option>
+                                <option value="Puppy Love">Puppy Love</option>
+                                <option value="Puppy Trim Bath">Puppy Trim Bath</option>
+                                <option value="Puppy Bath">Puppy Bath</option>
+                                <option value="Senior Retreat">Senior Retreat</option>
+                                <option value="Signature Groom (The Works)">Signature Groom (The Works)</option>
+                                <option value="Glow Up Scissor Groom">Glow Up Scissor Groom</option>
+                                <option value="Bath and Blow Dry">Bath and Blow Dry</option>
+                                <option value="Bath & Brush">Bath &amp; Brush</option>
+                                <option value="Mini Spaw">Mini Spaw</option>
+                                <option value="Shed-Control Bath">Shed-Control Bath</option>
+                                <option value="Double Coated & Long-Haired Shed Control Bath">Double Coated &amp; Long-Haired Shed Control Bath</option>
+                                <option value="Double Coated & Long-Haired Shed Control Bath & Tidy Combo">Double Coated &amp; Long-Haired Shed Control Bath &amp; Tidy Combo</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="report-detail-meta report12-summary-grid">
+                <article class="report-meta-card">
+                    <span>Top Package</span>
+                    <strong id="report19-top-package">Signature Groom (The Works)</strong>
+                </article>
+                <article class="report-meta-card">
+                    <span>Highest Package Revenue</span>
+                    <strong id="report19-highest-package-revenue">$2,720</strong>
+                </article>
+                <article class="report-meta-card">
+                    <span>Fastest Rising Package</span>
+                    <strong id="report19-rising-package">Glow Up Scissor Groom</strong>
+                </article>
+                <article class="report-meta-card">
+                    <span>Total Orders in Period</span>
+                    <strong id="report19-total-orders">184</strong>
+                </article>
+            </section>
+
+            <section class="report-detail-card">
+                <div class="report-group-header">
+                    <div>
+                        <h2>Most Used Service Packages</h2>
+                        <span id="report19-package-results">Showing all service packages</span>
+                    </div>
+                </div>
+
+                <div class="report-table-wrap">
+                    <table id="report19-packages-table">
+                        <thead>
+                            <tr>
+                                <th><button type="button" class="sort-button report19-package-sort" data-sort="packageName">Package Name</button></th>
+                                <th><button type="button" class="sort-button report19-package-sort" data-sort="timesSelected">Times Selected</button></th>
+                                <th><button type="button" class="sort-button report19-package-sort" data-sort="percentOfOrders">% of Total Orders</button></th>
+                                <th><button type="button" class="sort-button report19-package-sort" data-sort="revenueGenerated">Revenue Generated</button></th>
+                                <th><button type="button" class="sort-button report19-package-sort" data-sort="commonServices">Most Common Included Services</button></th>
+                                <th><button type="button" class="sort-button report19-package-sort" data-sort="trend">Trend</button></th>
+                            </tr>
+                        </thead>
+                        <tbody id="report19-packages-body"></tbody>
+                    </table>
+                </div>
+
+                <div id="report19-packages-empty" class="reports-empty-state hidden">
+                    <h3>No matching packages</h3>
+                    <p>Try another package filter or search term.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="report19.js"></script>
+</body>
+</html>

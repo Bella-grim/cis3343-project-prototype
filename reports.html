@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>LOGO</h2>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li>Pets</li>
+            <li>Appointments</li>
+            <li>Employees</li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="reports-shell">
+            <div class="reports-header">
+                <div>
+                    <h1>Reports</h1>
+                    <p class="section-title">A central place to organize all 19 report views we are presenting for the case study prototype.</p>
+                </div>
+                <div class="reports-search">
+                    <input id="report-search-input" type="search" placeholder="Search reports...">
+                </div>
+            </div>
+
+            <div class="report-filter-row">
+                <button type="button" class="report-filter-pill active" data-filter="all">All reports</button>
+                <button type="button" class="report-filter-pill" data-filter="safety">Safety &amp; compliance</button>
+                <button type="button" class="report-filter-pill" data-filter="operations">Operations</button>
+                <button type="button" class="report-filter-pill" data-filter="revenue">Revenue &amp; marketing</button>
+                <button type="button" class="report-filter-pill" data-filter="staff">Staff</button>
+                <button type="button" class="report-filter-pill" data-filter="pets">Pets</button>
+            </div>
+
+            <section class="report-group" data-category="safety">
+                <div class="report-group-header">
+                    <h2>Safety &amp; Compliance</h2>
+                    <span>4 reports</span>
+                </div>
+
+                <div class="report-grid">
+                    <article class="report-card" data-search="R1 Vaccination Status Report expired missing vaccinations grooming eligibility safety compliance">
+                        <div class="report-card-top">
+                            <span class="report-id">R1</span>
+                            <span class="report-tag safety">Safety</span>
+                        </div>
+                        <h3>Vaccination Status Report</h3>
+                        <p>Evaluates expired or missing vaccinations and determines grooming eligibility before service.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R2 Pet Behavioral Incident Risk Analysis behavioral incidents risk levels staff safety scheduling planning safety compliance">
+                        <div class="report-card-top">
+                            <span class="report-id">R2</span>
+                            <span class="report-tag safety">Safety</span>
+                        </div>
+                        <h3>Pet Behavioral &amp; Incident Risk Analysis</h3>
+                        <p>Tracks grooming-related behavioral incidents to assess risk levels, improve safety, and support scheduling for high-risk pets.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R9 Photo Compliance Report mandatory before after photos grooming service order safety compliance">
+                        <div class="report-card-top">
+                            <span class="report-id">R9</span>
+                            <span class="report-tag safety">Safety</span>
+                        </div>
+                        <h3>Photo Compliance Report</h3>
+                        <p>Monitors whether groomers follow the required before-and-after photo rule for every grooming service order.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R14 Data Quality Missing Information Report missing incomplete customer pet information records service quality safety compliance">
+                        <div class="report-card-top">
+                            <span class="report-id">R14</span>
+                            <span class="report-tag safety">Safety</span>
+                        </div>
+                        <h3>Data Quality &amp; Missing Information Report</h3>
+                        <p>Identifies missing or incomplete customer and pet information to improve record accuracy and reduce service-order errors.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="report-group" data-category="operations">
+                <div class="report-group-header">
+                    <h2>Operations</h2>
+                    <span>6 reports</span>
+                </div>
+
+                <div class="report-grid">
+                    <article class="report-card" data-search="R3 Daily Appointment Scheduling chronological view days workflow front desk groomers incoming pets scheduling operations">
+                        <div class="report-card-top">
+                            <span class="report-id">R3</span>
+                            <span class="report-tag operations">Operations</span>
+                        </div>
+                        <h3>Daily Appointment Scheduling</h3>
+                        <p>Provides a chronological view of the day’s workflow for front-desk staff and groomers preparing for incoming pets.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R8 Daily Capacity Workload Management Report shop capacity groomer workload staffing operational efficiency operations">
+                        <div class="report-card-top">
+                            <span class="report-id">R8</span>
+                            <span class="report-tag operations">Operations</span>
+                        </div>
+                        <h3>Daily Capacity and Workload Management Report</h3>
+                        <p>Provides a daily overview of shop capacity and groomer workload to support staffing decisions and safe operating levels.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R13 System Issue Error Tracking Report system errors daily operations recurring problems workflow operations">
+                        <div class="report-card-top">
+                            <span class="report-id">R13</span>
+                            <span class="report-tag operations">Operations</span>
+                        </div>
+                        <h3>System Issue &amp; Error Tracking Report</h3>
+                        <p>Tracks system errors and daily operational issues to identify recurring problems and improve workflow reliability.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R18 Service Order Exception Approval Actions Report exception warning approval actions non routine orders policy consistency operations">
+                        <div class="report-card-top">
+                            <span class="report-id">R18</span>
+                            <span class="report-tag operations">Operations</span>
+                        </div>
+                        <h3>Service Order Exception and Approval Actions Report</h3>
+                        <p>Identifies service orders needing warnings, exceptions, or approval actions to support policy consistency and safer decisions.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R17 Intake Estimate Accuracy Price Adjustment Report estimated price intake final total charged special fees cancellation fees operations">
+                        <div class="report-card-top">
+                            <span class="report-id">R17</span>
+                            <span class="report-tag operations">Operations</span>
+                        </div>
+                        <h3>Intake Estimate Accuracy and Price Adjustment Report</h3>
+                        <p>Compares intake estimates with final charges to track pricing accuracy, add-ons, and special fee adjustments.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="report-group" data-category="revenue">
+                <div class="report-group-header">
+                    <h2>Revenue &amp; Marketing</h2>
+                    <span>5 reports</span>
+                </div>
+
+                <div class="report-grid">
+                    <article class="report-card" data-search="R4 Service Popularity Analysis Report trending services targeted marketing campaigns revenue marketing">
+                        <div class="report-card-top">
+                            <span class="report-id">R4</span>
+                            <span class="report-tag revenue">Revenue</span>
+                        </div>
+                        <h3>Service Popularity Analysis Report</h3>
+                        <p>Identifies which services are trending and provides the data needed for targeted marketing campaigns.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R5 Customer Retention Inactive Clients Report customers not returned specific time frame repeat business revenue marketing">
+                        <div class="report-card-top">
+                            <span class="report-id">R5</span>
+                            <span class="report-tag revenue">Revenue</span>
+                        </div>
+                        <h3>Customer Retention &amp; Inactive Clients Report</h3>
+                        <p>Identifies customers who have not returned within a specific timeframe to support promotions and repeat business.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R7 Revenue Sales Breakdown Report financial summary grooming service orders selected time period revenue marketing">
+                        <div class="report-card-top">
+                            <span class="report-id">R7</span>
+                            <span class="report-tag revenue">Revenue</span>
+                        </div>
+                        <h3>Revenue and Sales Breakdown Report</h3>
+                        <p>Provides a financial summary of grooming service orders to monitor revenue performance and identify high-performing services.</p>
+                    </article>
+
+                    <article class="report-card report-card-link" data-search="R12 Add-On Service Usage Report add on services revenue upsell trends customer preferences revenue marketing">
+                        <a href="report12.html" class="report-card-anchor">
+                            <div class="report-card-top">
+                                <span class="report-id">R12</span>
+                                <span class="report-tag revenue">Revenue</span>
+                            </div>
+                            <h3>Add-On Service Usage Report</h3>
+                            <p>Shows which add-on services are selected most often, which generate the most revenue, and which are trending up or down.</p>
+                        </a>
+                    </article>
+
+                    <article class="report-card report-card-link" data-search="R19 Package Service Usage Report service packages popularity package revenue selected reporting period revenue marketing">
+                        <a href="report19.html" class="report-card-anchor">
+                            <div class="report-card-top">
+                                <span class="report-id">R19</span>
+                                <span class="report-tag revenue">Revenue</span>
+                            </div>
+                            <h3>Package Service Usage Report</h3>
+                            <p>Highlights the most popular grooming packages, package revenue, and package trends during the selected reporting period.</p>
+                        </a>
+                    </article>
+
+                    <article class="report-card" data-search="R16 New Returning Customer Monthly Report compare new returning customers monthly client base growth revenue marketing">
+                        <div class="report-card-top">
+                            <span class="report-id">R16</span>
+                            <span class="report-tag revenue">Revenue</span>
+                        </div>
+                        <h3>New and Returning Customer Monthly Report</h3>
+                        <p>Compares the number of new and returning customers monthly to evaluate client growth and business goals.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="report-group" data-category="staff">
+                <div class="report-group-header">
+                    <h2>Staff</h2>
+                    <span>2 reports</span>
+                </div>
+
+                <div class="report-grid">
+                    <article class="report-card" data-search="R6 Groomer Performance Productivity Report workload efficiency revenue contribution staffing scheduling staff">
+                        <div class="report-card-top">
+                            <span class="report-id">R6</span>
+                            <span class="report-tag staff">Staff</span>
+                        </div>
+                        <h3>Groomer Performance &amp; Productivity Report</h3>
+                        <p>Evaluates groomer workload, efficiency, and revenue contribution to help optimize staffing and scheduling.</p>
+                    </article>
+
+                    <article class="report-card report-card-link" data-search="R11 Groomer Skill Service Report groomer skills certifications authorized services staff training skill gaps">
+                        <div class="report-card-top">
+                            <span class="report-id">R11</span>
+                            <span class="report-tag staff">Staff</span>
+                        </div>
+                        <a href="report11.html" class="report-card-anchor">
+                            <h3>Groomer Skill and Service Report</h3>
+                            <p>Provides an overview of groomer skills, certifications, and authorized services to support assignment and training decisions.</p>
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="report-group" data-category="pets">
+                <div class="report-group-header">
+                    <h2>Pets</h2>
+                    <span>2 reports</span>
+                </div>
+
+                <div class="report-grid">
+                    <article class="report-card" data-search="R10 Special Handling Senior Dog Report extra time medical considerations behavioral accommodations senior care pets">
+                        <div class="report-card-top">
+                            <span class="report-id">R10</span>
+                            <span class="report-tag pets">Pets</span>
+                        </div>
+                        <h3>Special Handling and Senior Dog Report</h3>
+                        <p>Identifies pets needing extra time, medical consideration, behavioral accommodations, or senior-specific care.</p>
+                    </article>
+
+                    <article class="report-card" data-search="R15 Dog Size Service Packages Correlation report service packages booked based on dog size category pets services">
+                        <div class="report-card-top">
+                            <span class="report-id">R15</span>
+                            <span class="report-tag pets">Pets</span>
+                        </div>
+                        <h3>Dog Size and Service Packages Correlation</h3>
+                        <p>Shows which service packages are most frequently booked by dog size category to support promotions and planning.</p>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="reports.js"></script>
+</body>
+</html>

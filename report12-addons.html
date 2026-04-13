@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add-On Service Usage Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>LOGO</h2>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li>Pets</li>
+            <li>Appointments</li>
+            <li>Employees</li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="report-detail-shell">
+            <div class="report-detail-header">
+                <div>
+                    <a href="reports.html" class="report-back-link">Back to Reports</a>
+                    <p class="report-detail-id">New Report View</p>
+                    <h1>Add-On Service Usage Report</h1>
+                    <p class="report-detail-summary">A focused add-on report that shows which add-on services are selected most often, which produce the most revenue, and which add-ons look strongest for upselling during the selected period.</p>
+                </div>
+                <span class="report-tag revenue">Revenue &amp; Marketing</span>
+            </div>
+
+            <section class="report-detail-card">
+                <div class="report-toolbar report12-toolbar-top">
+                    <div class="report-toolbar-search">
+                        <label for="report12-addons-search">Search add-ons</label>
+                        <input id="report12-addons-search" type="search" placeholder="Search Gland Expression, Nail Grinding, De-matting...">
+                    </div>
+
+                    <div class="report-toolbar-filters report12-toolbar-filters report12-toolbar-filters-compact">
+                        <div class="report-filter-control">
+                            <label for="report12-addons-start-date">Start Date</label>
+                            <input id="report12-addons-start-date" type="date" value="2026-03-01">
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="report12-addons-end-date">End Date</label>
+                            <input id="report12-addons-end-date" type="date" value="2026-03-18">
+                        </div>
+
+                        <div class="report-filter-control">
+                            <label for="report12-addon-filter">Add-On Service Name</label>
+                            <select id="report12-addon-filter">
+                                <option value="all">All Add-Ons</option>
+                                <option value="Flea and Tick Treatment">Flea and Tick Treatment</option>
+                                <option value="Medicated Shampoo">Medicated Shampoo</option>
+                                <option value="Oatmeal Bath">Oatmeal Bath</option>
+                                <option value="Hair Volumizing Treatment">Hair Volumizing Treatment</option>
+                                <option value="Leave In Conditioner">Leave In Conditioner</option>
+                                <option value="De-matting">De-matting</option>
+                                <option value="Face or Sanitary Tidy">Face or Sanitary Tidy</option>
+                                <option value="Poodle Feet">Poodle Feet</option>
+                                <option value="Nail Grinding">Nail Grinding</option>
+                                <option value="Gland Expression">Gland Expression</option>
+                                <option value="Teeth Brush">Teeth Brush</option>
+                                <option value="Ear Pluck">Ear Pluck</option>
+                                <option value="Dog Safe Hair Dye">Dog Safe Hair Dye</option>
+                                <option value="Extra Handling">Extra Handling</option>
+                                <option value="Teeth Brushing with Foam and Spray">Teeth Brushing with Foam and Spray</option>
+                                <option value="Paw Pad & Nose Balm">Paw Pad &amp; Nose Balm</option>
+                                <option value="Wrinkle Balm">Wrinkle Balm</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="report-detail-meta report12-summary-grid">
+                <article class="report-meta-card">
+                    <span>Top Add-On</span>
+                    <strong id="report12-top-addon">Gland Expression</strong>
+                </article>
+                <article class="report-meta-card">
+                    <span>Highest Add-On Revenue</span>
+                    <strong id="report12-highest-addon-revenue">$420</strong>
+                </article>
+                <article class="report-meta-card">
+                    <span>Best Upsell Opportunity</span>
+                    <strong id="report12-best-upsell">Dog Safe Hair Dye</strong>
+                </article>
+                <article class="report-meta-card">
+                    <span>Total Add-On Selections</span>
+                    <strong id="report12-total-selections">173</strong>
+                </article>
+            </section>
+
+            <section class="report-detail-card">
+                <div class="report-group-header">
+                    <div>
+                        <h2>Most Added Add-On Services</h2>
+                        <span id="report12-addons-results">Showing all add-on services</span>
+                    </div>
+                </div>
+
+                <div class="report-table-wrap">
+                    <table id="report12-addons-table">
+                        <thead>
+                            <tr>
+                                <th><button type="button" class="sort-button report12-addon-sort" data-sort="serviceName">Add-On Service Name</button></th>
+                                <th><button type="button" class="sort-button report12-addon-sort" data-sort="timesAdded">Times Added</button></th>
+                                <th><button type="button" class="sort-button report12-addon-sort" data-sort="percentOfOrders">% of Total Orders</button></th>
+                                <th><button type="button" class="sort-button report12-addon-sort" data-sort="revenueGenerated">Revenue Generated</button></th>
+                                <th><button type="button" class="sort-button report12-addon-sort" data-sort="averageRevenuePerSelection">Average Revenue Per Selection</button></th>
+                                <th><button type="button" class="sort-button report12-addon-sort" data-sort="trend">Trend</button></th>
+                            </tr>
+                        </thead>
+                        <tbody id="report12-addons-body"></tbody>
+                    </table>
+                </div>
+
+                <div id="report12-addons-empty" class="reports-empty-state hidden">
+                    <h3>No matching add-on services</h3>
+                    <p>Try another add-on filter or search term.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="report12-addons.js"></script>
+</body>
+</html>
